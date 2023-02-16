@@ -1,0 +1,12 @@
+FROM php:7.4-apache
+
+RUN apt update -y && apt upgrade -y
+RUN apt install vim -y
+RUN apt install telnet -y
+
+
+RUN docker-php-ext-install mysqli
+
+
+COPY php.ini /usr/local/etc/php/
+COPY . /var/www/html/
